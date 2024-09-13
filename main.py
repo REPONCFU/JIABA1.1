@@ -5,14 +5,21 @@ def spin_reels():
     reels = [random.choice(symbols) for _ in range(3)]
     print("Результаты:", " | ".join(reels))
     return reels
-def check_win(reels):
+
+def check_win(reels, bet):
     if len(set(reels)) == 1:
-        print("Поздравляем! Все три символа совпали!")
+        win_amount = bet * 10
+        print(f"Поздравляем! Вы выиграли {win_amount} монет!")
+        return win_amount
     elif len(set(reels)) == 2:
-        print("Неплохо! Два символа совпали!")
+        win_amount = bet * 2
+        print(f"Неплохо! Вы выиграли {win_amount} монет!")
+        return win_amount
     else:
         print("Попробуйте еще раз.")
-        
+        return 0
+
+
 
 balance = 100
 
