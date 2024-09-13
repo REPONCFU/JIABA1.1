@@ -3,6 +3,7 @@ import random
 def spin_reels():
     symbols = ['🍒', '🔔', '🍋', '⭐', '💎']
     reels = [random.choice(symbols) for _ in range(3)]
+    print("Результаты:", " | ".join(reels))
     return reels
 
 def main():
