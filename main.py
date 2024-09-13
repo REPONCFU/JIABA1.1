@@ -30,6 +30,7 @@ def main():
     while True:
         user_input = input("Нажмите Enter, чтобы играть (или 'q' для выхода): ")
         if user_input.lower() == 'q':
+            print(f"Вы ушли с {balance} монетами. Спасибо за игру!")
             break
         bet = int(input(f"Сколько хотите поставить? (Ваш баланс: {balance}): "))
         if bet > balance:
@@ -37,7 +38,10 @@ def main():
             continue
         balance -= bet
         reels = spin_reels()
-        check_win(reels)
+        win_amount = check_win(reels, bet)
+        balance += win_amount
+        print(f"Ваш текущий баланс: {balance} монет")
+
 
 
 if __name__ == "__main__":
