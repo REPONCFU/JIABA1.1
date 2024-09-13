@@ -12,16 +12,26 @@ def check_win(reels):
         print("Неплохо! Два символа совпали!")
     else:
         print("Попробуйте еще раз.")
+        
+
+balance = 100
 
 def main():
+    global balance
     print("Добро пожаловать в наше казино!")
-    # Основной цикл игры
+    print(f"Ваш начальный баланс: {balance} монет")
     while True:
         user_input = input("Нажмите Enter, чтобы играть (или 'q' для выхода): ")
         if user_input.lower() == 'q':
             break
-        # Вращение барабанов (пока не реализовано)
-        spin_reels()
+        bet = int(input(f"Сколько хотите поставить? (Ваш баланс: {balance}): "))
+        if bet > balance:
+            print("Недостаточно средств!")
+            continue
+        balance -= bet
+        reels = spin_reels()
+        check_win(reels)
+
 
 if __name__ == "__main__":
     main()
