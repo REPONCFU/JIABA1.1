@@ -42,7 +42,5 @@ def main():
         balance += win_amount
         print(f"Ваш текущий баланс: {balance} монет")
 
-
-
 if __name__ == "__main__":
     main()
